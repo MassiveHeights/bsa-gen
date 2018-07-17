@@ -11,7 +11,8 @@ program
   .usage('--in <input files> --out <filename>;\n  Example: --in *.mp3 --out atlas')
   .option('-i, --in [input files]', 'input files mask')
   .option('-o, --out [filename]', 'output file')
-  .option('-v, --vbr [0-9]', 'VBR')
+  .option('-v, --vbr [0-9]', 'VBR. Default: 7 (80-120 kbs)')
+  .option('-m, --mono [true/false]', 'specifies stereo/mono. Default: false')
   .parse(process.argv);
 
 if (!process.argv.slice(2).length) {
@@ -35,8 +36,14 @@ let waterfall = [];
 let outputAudio = outName + '.mp3';
 let outputJson = outName + '.json';
 
-let as = new AudioSprite({ VBR: program.vbr || 7, channelCount: 2, trackGap: 0 });
+let as = new AudioSprite({ VBR: program.vbr || 7, channelCount: program.mono ? 1 : 2, trackGap: 0 });
 let files = glob.readdirSync(program.in, {});
+
+if (files.length === 0) {
+  console.log('No files were found');
+  program.outputHelp();
+  return;
+}
 
 files.forEach(x => {
   waterfall.push(cb => {
