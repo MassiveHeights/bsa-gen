@@ -1,0 +1,18 @@
+{
+  "name": "bsa-gen",
+  "version": "1.0.0",
+  "description": "Sound atlas generator tool for Black Engine",
+  "bin": {
+    "bsa-gen": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "~",
+  "license": "MIT",
+  "devDependencies": {
+    "audiosprite-pkg": "^1.1.1",
+    "commander": "^2.15.1",
+    "glob-fs": "^0.1.7"
+  }
+}
