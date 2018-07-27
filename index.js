@@ -22,10 +22,14 @@ if (!process.argv.slice(2).length) {
 
 AudioSprite.prototype.outputJson = function (format) {
   if (format === 'black') {
-    var finalJson = {};
+    var finalJson = {
+      v: 0.6,
+      format: 'bsa',
+      sounds: {}
+    };
     for (let sn in this._json.spritemap) {
       let spriteInfo = this._json.spritemap[sn];
-      finalJson[sn] = [spriteInfo.start, spriteInfo.end - spriteInfo.start];
+      finalJson.sounds[sn] = [spriteInfo.start, spriteInfo.end - spriteInfo.start];
     }
     return finalJson;
   }
