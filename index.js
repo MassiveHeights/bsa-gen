@@ -4,7 +4,7 @@
 const AudioSprite = require('audiosprite-pkg');
 const async = require('async');
 const program = require('commander');
-const glob = require('glob-fs')({ gitignore: true });
+const glob = require('glob-fs')({ gitignore: false });
 
 program
   .version('1.0.0')
