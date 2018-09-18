@@ -7,7 +7,7 @@ const program = require('commander');
 const glob = require('glob-fs')({ gitignore: false });
 
 program
-  .version('1.0.0')
+  .version('1.0.2')
   .usage('--in <input files> --out <filename>;\n  Example: --in *.mp3 --out atlas')
   .option('-i, --in [input files]', 'input files mask')
   .option('-o, --out [filename]', 'output file')
@@ -23,7 +23,7 @@ if (!process.argv.slice(2).length) {
 AudioSprite.prototype.outputJson = function (format) {
   if (format === 'black') {
     var finalJson = {
-      v: 0.6,
+      v: 0.62,
       format: 'bsa',
       sounds: {}
     };

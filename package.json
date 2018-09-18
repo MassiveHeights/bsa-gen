@@ -1,6 +1,6 @@
 {
   "name": "bsa-gen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sound atlas generator tool for Black Engine",
   "bin": {
     "bsa-gen": "index.js"
